@@ -91,7 +91,7 @@ function resetState() {
 
 function selectAnswer(e) {
   const selectedBtn = e.target;
-  const isCorrect = selectBtn.dataset.correct === "true";
+  const isCorrect = selectedBtn.dataset.correct === "true";
   if (isCorrect) {
     selectedBtn.classList.add("correct");
   } else {
