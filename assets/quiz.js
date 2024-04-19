@@ -84,7 +84,7 @@ function showQuestion() {
   }
 }
 
-// once answer is clicked will display next button
+// creates button for each answer
 
 function resetState() {
   nextButton.style.display = "none";
