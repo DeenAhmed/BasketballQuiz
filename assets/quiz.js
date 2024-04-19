@@ -30,8 +30,8 @@ const questions = [
     question: "Which player has the most MVPs?",
     answers: [
       { text: "A. Lebron James", correct: false },
-      { text: "B. Kareem Abdul-Jabbar", correct: false },
-      { text: "C. Bill Russell", correct: true },
+      { text: "B. Kareem Abdul-Jabbar", correct: true },
+      { text: "C. Bill Russell", correct: false },
       { text: "D. Michael Jordan", correct: false },
     ],
   },
@@ -94,10 +94,12 @@ function selectAnswer(e) {
   const isCorrect = selectedBtn.dataset.correct === "true";
   if (isCorrect) {
     selectedBtn.classList.add("correct");
+    score++;
   } else {
     selectedBtn.classList.add("incorrect");
   }
-  // shows if correct or incorrect
+  // shows if correct or incorrect and adds to score
+
   Array.from(answerButtons.children).forEach((button) => {
     if (button.dataset.correct === "true") {
       button.classList.add("correct");
@@ -106,6 +108,30 @@ function selectAnswer(e) {
   });
   nextButton.style.display = "block";
 }
-// once answer is clicked will display next button
+// once answer is clicked will display correct answer if incorrect and next button
+
+function showScore() {
+  resetState();
+  questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+  nextButton.innerHTML = "Play Again";
+  nextButton.style.display = "block";
+}
+
+function handleNextButton() {
+  currentQuestionIndex++;
+  if (currentQuestionIndex < questions.length) {
+    showQuestion();
+  } else {
+    showScore();
+  }
+}
+
+nextButton.addEventListener("click", () => {
+  if (currentQuestionIndex < questions.length) {
+    handleNextButton();
+  } else {
+    startQuiz();
+  }
+});
 
 startQuiz();
