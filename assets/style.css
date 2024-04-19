@@ -23,25 +23,33 @@ body {
   font-weight: 600;
   border-bottom: 1px solid cadetblue;
   padding-bottom: 30px;
+  text-align: center;
 }
 .quiz {
   padding: 20px 0;
 }
 .quiz h2 {
-  font-size: 18px;
+  font-size: 20px;
   color: lightslategray;
   font-weight: 600;
+  text-align: center;
+  padding-bottom: 5px;
 }
 .btn {
   background: white;
   color: lightslategray;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 15px;
   width: 100%;
-  border: 1px solid lightslategray;
-  border: 10px;
+  border: 2px solid lightslategray;
   padding: 10px;
   margin: 10px 0;
   text-align: center;
   border-radius: 5px;
   cursor: pointer;
+  transition: all 0.5s;
+}
+.btn:hover {
+  background: lightslategray;
+  color: white;
 }
