@@ -97,7 +97,15 @@ function selectAnswer(e) {
   } else {
     selectedBtn.classList.add("incorrect");
   }
+  // shows if correct or incorrect
+  Array.from(answerButtons.children).forEach((button) => {
+    if (button.dataset.correct === "true") {
+      button.classList.add("correct");
+    }
+    button.disabled = true;
+  });
+  nextButton.style.display = "block";
 }
-// shows if correct or incorrect
+// once answer is clicked will display next button
 
 startQuiz();
