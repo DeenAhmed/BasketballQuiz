@@ -48,7 +48,7 @@ const questions = [
 // questions
 
 const questionElement = document.getElementById("question");
-const answerButton = document.getElementById("answer-buttons");
+const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 // const to pull Id from html
 
@@ -63,15 +63,41 @@ function startQuiz() {
 }
 
 function showQuestion() {
+  resetState();
   let currentQuestion = questions[currentQuestionIndex];
   let questionNo = currentQuestionIndex + 1;
   questionElement.innerHTML = questionNo + "." + currentQuestion.question;
+  // function to pull question to correct place
 
   currentQuestion.answers.forEach((answer) => {
     const button = document.createElement("button");
     button.innerHTML = answer.text;
     button.classList.add("btn");
-    answerButton.appendChild(button);
+    answerButtons.appendChild(button);
+    if (answer.correct) {
+      button.dataset.correct = answer.correct;
+    }
+    button.addEventListener("click", selectAnswer);
   });
 }
-// function to pull question to correct place
+
+function resetState() {
+  nextButton.style.display = "none";
+  while (answerButtons.firstChild) {
+    answerButtons.removeChild(answerButtons.firstChild);
+  }
+}
+// adds answers into correct place
+
+function selectAnswer(e) {
+  const selectedBtn = e.target;
+  const isCorrect = selectBtn.dataset.correct === "true";
+  if (isCorrect) {
+    selectedBtn.classList.add("correct");
+  } else {
+    selectedBtn.classList.add("incorrect");
+  }
+}
+// shows if correct or incorrect
+
+startQuiz();
