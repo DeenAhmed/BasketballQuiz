@@ -51,7 +51,7 @@ const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 
-// const to pull Id from html
+// const to retrieve elements from html file Id
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -84,7 +84,7 @@ function showQuestion() {
   }
 }
 
-// for loop to count question number and if less then the length loop continues
+// once answer is clicked will display next button
 
 function resetState() {
   nextButton.style.display = "none";
@@ -104,6 +104,7 @@ function selectAnswer(e) {
     selectedBtn.classList.add("incorrect");
   }
   // shows if correct or incorrect and adds to score
+
   const answerButtonsChildren = answerButtons.children;
   for (let i = 0; i < answerButtonsChildren.length; i++) {
     const button = answerButtonsChildren[i];
@@ -114,7 +115,8 @@ function selectAnswer(e) {
   }
   nextButton.style.display = "block";
 }
-// once answer is clicked will display correct answer if incorrect and next button
+// disabling the answer buttons and styling the correct answer button after a user selects an answer
+
 function showScore() {
   resetState();
   questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
