@@ -50,6 +50,7 @@ const questions = [
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
+
 // const to pull Id from html
 
 let currentQuestionIndex = 0;
@@ -67,9 +68,11 @@ function showQuestion() {
   let currentQuestion = questions[currentQuestionIndex];
   let questionNo = currentQuestionIndex + 1;
   questionElement.innerHTML = questionNo + "." + currentQuestion.question;
+
   // function to pull question to correct place
 
-  currentQuestion.answers.forEach((answer) => {
+  for (let i = 0; i < currentQuestion.answers.length; i++) {
+    const answer = currentQuestion.answers[i];
     const button = document.createElement("button");
     button.innerHTML = answer.text;
     button.classList.add("btn");
@@ -78,8 +81,10 @@ function showQuestion() {
       button.dataset.correct = answer.correct;
     }
     button.addEventListener("click", selectAnswer);
-  });
+  }
 }
+
+// for loop to count question number and if less then the length loop continues
 
 function resetState() {
   nextButton.style.display = "none";
@@ -99,17 +104,17 @@ function selectAnswer(e) {
     selectedBtn.classList.add("incorrect");
   }
   // shows if correct or incorrect and adds to score
-
-  Array.from(answerButtons.children).forEach((button) => {
+  const answerButtonsChildren = answerButtons.children;
+  for (let i = 0; i < answerButtonsChildren.length; i++) {
+    const button = answerButtonsChildren[i];
     if (button.dataset.correct === "true") {
       button.classList.add("correct");
     }
     button.disabled = true;
-  });
+  }
   nextButton.style.display = "block";
 }
 // once answer is clicked will display correct answer if incorrect and next button
-
 function showScore() {
   resetState();
   questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
