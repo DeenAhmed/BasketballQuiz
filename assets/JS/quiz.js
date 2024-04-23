@@ -91,7 +91,7 @@ const questions = [
     ],
   },
   {
-    question: "Which NBA team has won the most championships?",
+    question: "Which NBA team did Larry Bird play for?",
     answers: [
       { text: "Los Angeles Lakers", correct: false },
       { text: "Boston Celtics", correct: true },
@@ -255,9 +255,9 @@ function selectAnswer(e) {
     Swal.fire({
       position: "center",
       icon: "success",
-      title: "Correct Answer!",
+      title: "Correct!",
       showConfirmButton: false,
-      timer: 2000,
+      timer: 1500,
     });
     score++;
   } else {
@@ -265,11 +265,33 @@ function selectAnswer(e) {
     Swal.fire({
       position: "center",
       icon: "error",
-      title: "You're shit",
+      title: "Unlucky!",
       showConfirmButton: false,
-      timer: 2000,
+      timer: 1500,
     });
   }
+
+  const nextButton = document.getElementById("next-btn");
+
+  // Set transition duration in milliseconds
+  const transitionDuration = 200;
+
+  // Set transition timing function
+  const transitionTimingFunction = "ease";
+
+  // Apply transition property to the button
+  nextButton.style.transition = `transform ${transitionDuration}ms ${transitionTimingFunction}`;
+
+  // Scale the button by 10% on hover
+  nextButton.addEventListener("mouseover", function () {
+    nextButton.style.transform = "scale(1.1)";
+  });
+
+  // Reset the button size when mouse leaves
+  nextButton.addEventListener("mouseout", function () {
+    nextButton.style.transform = "scale(1)";
+  });
+
   // shows if correct or incorrect and adds to score
 
   const answerButtonsChildren = answerButtons.children;
