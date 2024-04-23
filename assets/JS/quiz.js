@@ -56,9 +56,23 @@ function selectAnswer(e) {
   const isCorrect = selectedBtn.dataset.correct === "true";
   if (isCorrect) {
     selectedBtn.classList.add("correct");
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Correct Answer!",
+      showConfirmButton: false,
+      timer: 2000,
+    });
     score++;
   } else {
     selectedBtn.classList.add("incorrect");
+    Swal.fire({
+      position: "center",
+      icon: "error",
+      title: "Unlucky!",
+      showConfirmButton: false,
+      timer: 2000,
+    });
   }
   // shows if correct or incorrect and adds to score
 
