@@ -91,7 +91,7 @@ const questions = [
     ],
   },
   {
-    question: "Which NBA team has won the most championships?",
+    question: "Which NBA team did Larry Bird play for?",
     answers: [
       { text: "Los Angeles Lakers", correct: false },
       { text: "Boston Celtics", correct: true },
