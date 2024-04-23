@@ -18,7 +18,7 @@ body {
   padding: 30px;
 }
 .app h1 {
-  font-size: 25px;
+  font-size: 30px;
   color: lightslategray;
   font-weight: 600;
   border-bottom: 1px solid cadetblue;
@@ -29,6 +29,9 @@ body {
   font-size: 25px;
   color: lightslategray;
   font-weight: 500;
+}
+.fas.fa-basketball {
+  color: lightskyblue;
 }
 .quiz {
   padding: 20px 0;
@@ -79,4 +82,10 @@ body {
 }
 .incorrect {
   background-color: #ff9595;
+}
+
+@media screen and (max-width: 400px) {
+  .icon-right {
+    display: none;
+  }
 }
