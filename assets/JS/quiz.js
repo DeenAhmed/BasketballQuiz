@@ -191,12 +191,18 @@ const questions = [
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
+const scoreboard = document.getElementById("scoreboard");
 
 // const to retrieve elements from html file Id
 
 let currentQuestionIndex = 0;
 let score = 0;
 let shuffledQuestions = [];
+
+function startQuiz() {
+  score = 0;
+  updateScoreboard();
+}
 
 function startQuiz() {
   shuffledQuestions = [];
@@ -260,6 +266,7 @@ function selectAnswer(e) {
       timer: 1500,
     });
     score++;
+    updateScoreboard();
   } else {
     selectedBtn.classList.add("incorrect");
     Swal.fire({
@@ -269,6 +276,10 @@ function selectAnswer(e) {
       showConfirmButton: false,
       timer: 1500,
     });
+  }
+  // Update scoreboard text
+  function updateScoreboard() {
+    scoreboard.textContent = `Score: ${score}`;
   }
 
   const nextButton = document.getElementById("next-btn");
