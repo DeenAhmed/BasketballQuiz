@@ -1,51 +1,5 @@
-const questions = [
-  {
-    question: "Who has scored the most points in NBA history?",
-    answers: [
-      { text: "A. Michael Jordan", correct: false },
-      { text: "B. Lebron James", correct: true },
-      { text: "C. Kareem Abdul-Jabbar", correct: false },
-      { text: "D. Wilt Chamberlain", correct: false },
-    ],
-  },
-  {
-    question: "Which NBA Team has the most Championship titles?",
-    answers: [
-      { text: "A. Chicago Bulls", correct: false },
-      { text: "B. Los Angeles Lakers", correct: true },
-      { text: "C. Golden State Warriors", correct: false },
-      { text: "D. San Antiono Spurs", correct: false },
-    ],
-  },
-  {
-    question: "Who has won the most NBA Championship titles?",
-    answers: [
-      { text: "A. Michael Jordan", correct: false },
-      { text: "B. Larry Bird", correct: false },
-      { text: "C. Tim Duncan", correct: false },
-      { text: "D. Robert Horry", correct: true },
-    ],
-  },
-  {
-    question: "Which player has the most MVPs?",
-    answers: [
-      { text: "A. Lebron James", correct: false },
-      { text: "B. Kareem Abdul-Jabbar", correct: true },
-      { text: "C. Bill Russell", correct: false },
-      { text: "D. Michael Jordan", correct: false },
-    ],
-  },
-  {
-    question: "Which of these NBA franchises has never relocated?",
-    answers: [
-      { text: "A. Toronto Raptors", correct: true },
-      { text: "B. Utah Jazz", correct: false },
-      { text: "C. Sacramento Kings", correct: false },
-      { text: "D. Los Angeles Lakers", correct: false },
-    ],
-  },
-];
-// questions
+import questions from "./questions.js";
+// import questions
 
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
@@ -55,17 +9,20 @@ const nextButton = document.getElementById("next-btn");
 
 let currentQuestionIndex = 0;
 let score = 0;
+let shuffledQuestions = [];
 
 function startQuiz() {
+  shuffledQuestions = [];
   currentQuestionIndex = 0;
   score = 0;
   nextButton.innerHTML = "Next";
+  shuffledQuestions = shuffle(questions).slice(0, 10);
   showQuestion();
 }
 
 function showQuestion() {
   resetState();
-  let currentQuestion = questions[currentQuestionIndex];
+  let currentQuestion = shuffledQuestions[currentQuestionIndex];
   let questionNo = currentQuestionIndex + 1;
   questionElement.innerHTML = questionNo + "." + currentQuestion.question;
 
@@ -119,14 +76,14 @@ function selectAnswer(e) {
 
 function showScore() {
   resetState();
-  questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+  questionElement.innerHTML = `You scored ${score} out of ${shuffledQuestions.length}!`;
   nextButton.innerHTML = "Play Again";
   nextButton.style.display = "block";
 }
 
 function handleNextButton() {
   currentQuestionIndex++;
-  if (currentQuestionIndex < questions.length) {
+  if (currentQuestionIndex < shuffledQuestions.length) {
     showQuestion();
   } else {
     showScore();
@@ -134,11 +91,26 @@ function handleNextButton() {
 }
 
 nextButton.addEventListener("click", () => {
-  if (currentQuestionIndex < questions.length) {
+  if (currentQuestionIndex < shuffledQuestions.length) {
     handleNextButton();
   } else {
     startQuiz();
   }
 });
+
+function shuffle(array) {
+  let currentIndex = array.length;
+
+  while (currentIndex != 0) {
+    let randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+  return array;
+}
 
 startQuiz();
