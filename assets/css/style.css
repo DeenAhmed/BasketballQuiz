@@ -86,6 +86,12 @@ body {
 
 @media screen and (max-width: 400px) {
   .app h1 {
-    font-size: 25px;
+    font-size: 20px;
+  }
+  #scoreboard {
+    font-size: 18px;
+  }
+  #question {
+    font-size: 18px;
   }
 }
