@@ -85,7 +85,7 @@ body {
 }
 
 @media screen and (max-width: 400px) {
-  .icon-right {
-    display: none;
+  .app h1 {
+    font-size: 25px;
   }
 }
