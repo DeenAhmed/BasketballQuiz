@@ -25,6 +25,11 @@ body {
   padding-bottom: 30px;
   text-align: center;
 }
+#scoreboard {
+  font-size: 25px;
+  color: lightslategray;
+  font-weight: 500;
+}
 .quiz {
   padding: 20px 0;
 }
