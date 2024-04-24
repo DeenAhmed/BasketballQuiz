@@ -30,8 +30,6 @@ function showQuestion() {
   let questionNo = currentQuestionIndex + 1;
   questionElement.innerHTML = questionNo + "." + currentQuestion.question;
 
-  // function to pull question to correct place
-
   currentQuestion.answers = shuffle(currentQuestion.answers);
 
   for (let i = 0; i < currentQuestion.answers.length; i++) {
@@ -84,29 +82,18 @@ function selectAnswer(e) {
     });
   }
   // Update scoreboard text
-
-  const nextButton = document.getElementById("next-btn");
-
-  // Set transition duration in milliseconds
   const transitionDuration = 200;
-
-  // Set transition timing function
   const transitionTimingFunction = "ease";
 
-  // Apply transition property to the button
   nextButton.style.transition = `transform ${transitionDuration}ms ${transitionTimingFunction}`;
 
-  // Scale the button by 10% on hover
   nextButton.addEventListener("mouseover", function () {
     nextButton.style.transform = "scale(1.1)";
   });
 
-  // Reset the button size when mouse leaves
   nextButton.addEventListener("mouseout", function () {
     nextButton.style.transform = "scale(1)";
   });
-
-  // shows if correct or incorrect and adds to score
 
   const answerButtonsChildren = answerButtons.children;
   for (let i = 0; i < answerButtonsChildren.length; i++) {
@@ -129,7 +116,6 @@ function showScore() {
   nextButton.innerHTML = "Play Again";
   nextButton.style.display = "block";
 }
-shuffledQuestions;
 function handleNextButton() {
   currentQuestionIndex++;
   if (currentQuestionIndex < shuffledQuestions.length) {
