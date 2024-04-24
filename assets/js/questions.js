@@ -74,10 +74,10 @@ const questions = [
   {
     question: "Which player has won the most NBA championships?",
     answers: [
-      { text: "A. Michael Jordan", correct: false },
-      { text: "B. Bill Russell", correct: true },
-      { text: "C. Magic Johnson", correct: false },
-      { text: "D. Kareem Abdul-Jabbar", correct: false },
+      { text: "Michael Jordan", correct: false },
+      { text: "Bill Russell", correct: true },
+      { text: "Magic Johnson", correct: false },
+      { text: "Kareem Abdul-Jabbar", correct: false },
     ],
   },
   {
