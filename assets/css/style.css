@@ -6,9 +6,11 @@
   font-style: normal;
   box-sizing: border-box;
 }
+/*--background--*/
 body {
   background: lightskyblue;
 }
+/*--quiz app--*/
 .app {
   background: white;
   width: 90%;
@@ -30,9 +32,6 @@ body {
   color: lightslategray;
   font-weight: 500;
 }
-.fas.fa-basketball {
-  color: lightskyblue;
-}
 .quiz {
   padding: 20px 0;
 }
@@ -43,6 +42,7 @@ body {
   text-align: center;
   padding-bottom: 5px;
 }
+/*--quiz buttons--*/
 .btn {
   background: white;
   color: #6e6e6e;
@@ -77,6 +77,7 @@ body {
   cursor: pointer;
   display: none;
 }
+/*--answer results colour--*/
 .correct {
   background: #82ffaa;
 }
