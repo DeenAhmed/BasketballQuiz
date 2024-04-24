@@ -9,6 +9,9 @@ let currentQuestionIndex = 0;
 let score = 0;
 let shuffledQuestions = [];
 
+/**
+ * Sets up the initial state of the quiz
+ */
 function startQuiz() {
   shuffledQuestions = [];
   currentQuestionIndex = 0;
@@ -22,7 +25,7 @@ function startQuiz() {
 }
 
 /**
- * Shows the current question
+ * Shows the current question and answer choices
  */
 function showQuestion() {
   resetState();
@@ -45,7 +48,9 @@ function showQuestion() {
   }
 }
 
-// creates button for each answer
+/**
+ * Resets the state of the quiz interface and hides next button
+ */
 function resetState() {
   nextButton.style.display = "none";
   while (answerButtons.firstChild) {
@@ -81,7 +86,7 @@ function selectAnswer(e) {
       timer: 1500,
     });
   }
-  // Update scoreboard text
+
   const transitionDuration = 200;
   const transitionTimingFunction = "ease";
 
@@ -95,6 +100,9 @@ function selectAnswer(e) {
     nextButton.style.transform = "scale(1)";
   });
 
+  /**
+   * Disabling the answer buttons and styling the correct answer button after a user selects an answer
+   */
   const answerButtonsChildren = answerButtons.children;
   for (let i = 0; i < answerButtonsChildren.length; i++) {
     const button = answerButtonsChildren[i];
@@ -105,17 +113,27 @@ function selectAnswer(e) {
   }
   nextButton.style.display = "block";
 }
+
+/**
+ * Scoreboard updates to reflect the current score
+ */
 function updateScoreboard() {
   scoreboard.textContent = `Score: ${score}`;
 }
-// disabling the answer buttons and styling the correct answer button after a user selects an answer
 
+/**
+ * Displays final score and option to play again
+ */
 function showScore() {
   resetState();
   questionElement.innerHTML = `You scored ${score} out of ${shuffledQuestions.length}!`;
   nextButton.innerHTML = "Play Again";
   nextButton.style.display = "block";
 }
+
+/**
+ * Determines whether to display the next question or final score
+ */
 function handleNextButton() {
   currentQuestionIndex++;
   if (currentQuestionIndex < shuffledQuestions.length) {
@@ -133,6 +151,11 @@ nextButton.addEventListener("click", () => {
   }
 });
 
+/**
+ * Shuffles the elements of the input array randomly
+ * @param {*} array
+ * @returns
+ */
 function shuffle(array) {
   let currentIndex = array.length;
 
