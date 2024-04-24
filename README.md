@@ -26,11 +26,11 @@ The main aim is for people interested in basketball and wanting to test their kn
 ### Target audience
 
 - People with interest in basketball.
-- People looking to test or gain knowledge on NBA baketball facts.
+- People looking to test or gain knowledge on NBA basketball facts.
 
 ### User requirements and expectations
 
-- A clear navigation that makes it easy to see flow through the site quiz.
+- A clear navigation that makes it easy to flow through the quiz site.
 - Buttons and functions that work as expected.
 - Fully responsive for viewing on any device.
 
@@ -53,9 +53,9 @@ I chose to use a light blue background and white for the quiz app placed in the 
 
 ## Features
 
-### Front Page
+### Quiz Page
 
-The front page holds the first question ready to be answered.
+The Quiz page holds the first question ready to be answered.
 
 ![Home](/assets/images/front-page.png)
 
@@ -127,7 +127,7 @@ At the end of the quiz it will count your correct answers and show this against 
 
 The [W3C Markup Validation Service](https://validator.w3.org/) was used to validate the HTML. The HTML passes with 0 errors and 0 warnings.
 
-<details><summary>Front page</summary>
+<details><summary>Quiz Page</summary>
 <img src="/assets/images/html-val.png">
 </details>
 
@@ -149,7 +149,7 @@ The [JS Hint](https://jshint.com/) was used to validate the JavaScript for both 
 
 ### Performance
 
-[Google Lighthouse](https://developers.google.com/web/tools/lighthouse) was used to test the performance of the website. The test shows 100 apart from Accessibility, this is due to lighthouse stating the colour of the app(White) does not contrast with the question colour enough.
+[Google Lighthouse](https://developers.google.com/web/tools/lighthouse) was used to test the performance of the website. The test shows 100 apart from Accessibility, this is due to lighthouse stating the colour of the app (White) does not contrast with the question colour (lightslategray) enough.
 
 <details><summary>Front page</summary>
 <img src="/assets/images/lighthouse-performance.png">
@@ -180,7 +180,7 @@ During the build the following issues were flagged
 
 ### Fix
 
-This was resolved by pulling the questions straight into the html using a script tag.
+- This was resolved by pulling the questions straight into the html using a script tag.
 
 ### Issue
 
@@ -188,7 +188,7 @@ This was resolved by pulling the questions straight into the html using a script
 
 ### Fix
 
-Removed duplicate function and this resolved issue
+- Removed duplicate function and this resolved issue
 
 ### Issue
 
@@ -196,7 +196,7 @@ Removed duplicate function and this resolved issue
 
 ### Fix
 
-Added nextButton display to show block
+- Added nextButton display to show block
 
 ## Deployment
 
