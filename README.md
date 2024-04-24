@@ -103,6 +103,12 @@ After selecting an answer the cursor becomes disabled and only allows you to sel
 
 When hovering the cursor over the Next button, the button increases in size so that it is easier to indicate what is being selected.
 
+### Total Score
+
+At the end of the quiz it will count your correct answers and show this against the total question number.
+
+![Total Score](/assets/images/score-screen.png)
+
 ## Technologies used
 
 - HTML, CSS & JavaScript programming languages
