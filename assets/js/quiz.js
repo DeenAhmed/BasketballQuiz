@@ -19,7 +19,6 @@ function startQuiz() {
   updateScoreboard();
   nextButton.innerHTML = "Next";
   shuffledQuestions = shuffle(questions).slice(0, 10);
-  console.log(shuffledQuestions);
 
   showQuestion();
 }
