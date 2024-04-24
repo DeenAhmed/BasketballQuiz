@@ -77,7 +77,7 @@ const questions = [
       { text: "Michael Jordan", correct: false },
       { text: "Bill Russell", correct: true },
       { text: "Magic Johnson", correct: false },
-      { text: "D. Kareem Abdul-Jabbar", correct: false },
+      { text: "Kareem Abdul-Jabbar", correct: false },
     ],
   },
   {
